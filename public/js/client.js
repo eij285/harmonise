@@ -2,6 +2,7 @@
 
 
 import { getCurrentAudio, audioPlayerMax, audioPlayer } from './audio.js'
+import { percentageCalc }
 
 
 var Promise = TrelloPowerUp.Promise;

@@ -23,7 +23,7 @@ export function getCurrentAudio() {
 
 
 export function getCompletionPercent() {
-  var percent = 0;
+  var percent = 0.45;
   return percent;
 }
 
@@ -47,7 +47,7 @@ export function setAudio() {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F4_7.mp3?v=1630142429925");
   } else if (completion < 0.80) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F5_7.mp3?v=1630142436514");
-  } else if (completion < 100) {
+  } else if (completion < 1) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F6_7.mp3?v=1630142429925");
   } else {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127");
