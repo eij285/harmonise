@@ -4,7 +4,7 @@
   <head>
     <style>
       .image-stack {
-        position: relative;
+        position: absolute;
       }
 
       .space-bg {
@@ -18,13 +18,8 @@
       .sprite {
         position: absolute;
         z-index: 2;
-        left: 45px;
+        left: 55px;
         top: 146px;
-        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-        /*         animation-iteration-count: infinite; */
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-        perspective: 1000px;
       }
 
       @keyframes wiggle {
@@ -50,33 +45,54 @@
         }
       }
 
-      .cyan-sprite {
-        position: absolute;
-        left: 10px;
+      #cyan-sprite:hover {
+        left: 0px;
+        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
-      .pink-sprite {
-        position: absolute;
+      .pink-sprite:hover {
         left: 97px;
+        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
-      .orange-sprite {
-        position: absolute;
+      .orange-sprite:hover {
         left: 184px;
+        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
-      .indigo-sprite {
-        position: absolute;
+      .indigo-sprite:hover {
         left: 271px;
+        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
-      .yellow-sprite {
-        position: absolute;
+      .yellow-sprite:hover {
         left: 358px;
+        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
-      .green-sprite {
-        position: absolute;
+      .green-sprite:hover {
         left: 445px;
+        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
-      .red-sprite {
-        position: absolute;
+      .red-sprite:hover {
         left: 532px;
+        animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
     </style>
     <meta charset="utf-8" />

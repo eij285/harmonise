@@ -38,8 +38,8 @@ TrelloPowerUp.initialize({
     audio.play();
     return t.modal({
       url: "./intro.html",
-      //height: 500,
-      title: "Harmonise"
+      height: 500,
+      title: "Harmonise",
     });
   },
   // Pauses audio
