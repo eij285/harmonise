@@ -82,8 +82,11 @@ TrelloPowerUp.initialize({
                     const percentage = percentageCalc(lists);
                     var oldAudio = setAudio(percentage);
                     var audio = getCurrentAudio();
-                    audio.play();
-                    oldAudio.pause();
+
+                    if (oldAudio != null) {
+                      audio.play();
+                      oldAudio.pause();
+                    }
 
                     console.log(percentage);
                   });
