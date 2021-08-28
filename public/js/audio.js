@@ -23,7 +23,7 @@ export function getCurrentAudio() {
 
 
 export function getCompletionPercent() {
-  var percent = 0.45;
+  var percent = 0.40;
   return percent;
 }
 
@@ -39,9 +39,9 @@ export function setAudio() {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F0_7.mp3?v=1630142429925");
   } else if (completion < 0.15) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F1_7.mp3?v=1630142429925");
-  } else if (completion < 0.30) {
+  } else if (completion < 0.25) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F2_7.mp3?v=1630142429924");
-  } else if (completion < 0.45) {
+  } else if (completion < 0.40) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F3_7.mp3?v=1630142433900");
   } else if (completion < 0.60) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F4_7.mp3?v=1630142429925");
@@ -53,7 +53,7 @@ export function setAudio() {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127");
   }
   
-  audio.fastSeek(time);
+  audio.currentTime = time;
 };
 
 
