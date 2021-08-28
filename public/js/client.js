@@ -28,11 +28,20 @@ img_1.src =
 
 TrelloPowerUp.initialize({
   "on-enable": function(t, options) {
-    return [
-      {
-        callback: audioPlayer2
-      }
-    ];
+    audio.play()
+    // return t.modal({
+    //   url: './power-up-onboarding.html',
+    //   height: 500,
+    //   title: 'My Power-Up Overview'
+    // });
+  },
+  "on-disable": function(t, options) {
+    audio.pause()
+    // return t.modal({
+    //   url: './power-up-onboarding.html',
+    //   height: 500,
+    //   title: 'My Power-Up Overview'
+    // });
   },
   "card-buttons": function(t, options) {
     return [
