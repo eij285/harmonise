@@ -25,6 +25,10 @@ var img_1 = new Image();
 img_1.src =
   "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fdiamond.png?v=1630138947894";
 
+
+
+
+
 TrelloPowerUp.initialize({
   // Starts playing audio and prints a modal containing the overview
   "on-enable": function(t, options) {
