@@ -63,8 +63,6 @@ export function setAudio(completion) {
   } else if (completion < 1) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F6_7.mp3?v=1630159451702");
   } else {
-    let sprite1 = document.getElementById("cyan-sprite"); //.style.visibility = "hidden";
-          console.log(sprite1);
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127");
   }
   
