@@ -7,7 +7,7 @@ var BLACK_ROCKET_ICON =
 
 var audioPlayer = function() {
   var audio = new Audio(
-    "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3"
+    "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127"
   );
   audio.play();
 };
@@ -41,3 +41,4 @@ TrelloPowerUp.initialize({
   //   });
   // }
 });
+ 
