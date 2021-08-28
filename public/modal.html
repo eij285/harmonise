@@ -21,7 +21,7 @@
         left: 45px; 
         top: 146px;         
         animation: wiggle 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-        animation-iteration-count: infinite;
+/*         animation-iteration-count: infinite; */
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;
         perspective: 1000px;
@@ -52,7 +52,7 @@
       
       
 
-      .cyan-sprite {
+      #cyan-sprite {
         position: absolute;
         left: 10px;
       }
@@ -88,7 +88,7 @@
       <div class="sprite">
         <img
           src="https://cdn.glitch.com/5a4486ec-9ae8-448d-9b9e-18352ad37668%2F7%20(1).png?v=1630159671994"
-          class="cyan-sprite"
+          id="cyan-sprite"
         />
         <img
           src="https://cdn.glitch.com/5a4486ec-9ae8-448d-9b9e-18352ad37668%2F5%20(1).png?v=1630159681102"
@@ -122,5 +122,6 @@
     </div>
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script src="./js/client.js"></script>
+    <script src="./js/audio.js" type="module"></script>
   </body>
 </html>
