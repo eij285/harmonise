@@ -34,48 +34,33 @@ TrelloPowerUp.initialize({
     audio.pause();
   },
   // EDIT: Should be deleted or replaced with a make task button
-  "card-buttons": function(t, options) {
-    return [
-      {
-        text: "Hello World!",
-        icon: BLACK_ROCKET_ICON,
-        callback: audioPlayer
-      },{
-        text: "Goodbye World!",
-        icon: BLACK_ROCKET_ICON,
-        callback: audioPlayer
-      }
-    ];
-  },
+
   "board-buttons": function (t, opts) {
-    return [
-      {t.lists("all").then(function (lists) {
-      
+    t.lists("all").then(function (lists) {
+
       const percentage = percentageCalc(lists);
       var oldAudio = setAudio(percentage);
       var audio = getCurrentAudio();
       audio.play();
       oldAudio.pause();
-      
+
       console.log(percentage);
     });
-  }, {
-  
-}
-  ];
-//    return t.lists("all").then(function (lists) {
-//      
-//     const percentage = percentageCalc(lists);
-//       var oldAudio = setAudio(percentage);
-//       var audio = getCurrentAudio();
-//       audio.play();
-//       oldAudio.pause();
-      
-//       console.log(percentage);
-//    });
+    return [
+      {
+        text: "Play/Pause",
+        icon: BLACK_ROCKET_ICON,
+        callback: audioPlayer
+      },
+      {
+        text: "Stage",
+        icon: BLACK_ROCKET_ICON,
+        callback: console.log("Accessing stage")
+      }
+    ]
   }
   
-  
+
   
   
   
