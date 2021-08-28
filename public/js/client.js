@@ -4,8 +4,14 @@
 import { getCurrentAudio, audioPlayerMax, audioPlayer, setAudio } from './audio.js'
 import { percentageCalc } from './percentage.js'
 
-
 var Promise = TrelloPowerUp.Promise;
+
+// Board button icons
+var WHITE_ICON =
+  "https://cdn.glitch.com/5a4486ec-9ae8-448d-9b9e-18352ad37668%2Fmusic%20(2).png?v=1630144427611";
+
+var BLACK_ICON =
+  "https://cdn.glitch.com/5a4486ec-9ae8-448d-9b9e-18352ad37668%2Fmusic%20(1).png?v=1630144302781";
 
 var BLACK_ROCKET_ICON =
   "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
@@ -55,9 +61,18 @@ TrelloPowerUp.initialize({
         callback: audioPlayer
       },
       {
-        text: "Stage",
-        icon: BLACK_ROCKET_ICON,
-        callback: placeholder
+        icon: {
+          light: BLACK_ICON,
+          dark: WHITE_ICON
+        },
+        text: "Harmonise",
+        callback: function(t) {
+          return t.modal({
+            title: "Harmonise",
+            url: "./modal.html",
+            accentColor: "#000000"
+          });
+        }
       }
     ]
   },
