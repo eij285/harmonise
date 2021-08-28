@@ -21,12 +21,10 @@ var audioPlayer2 = function() {
   audio.play();
 };
 
-
-
-
 // Rendering images into the board
-var img_1 = new Image(); 
-img.src = 
+var img_1 = new Image();
+img_1.src =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fdiamond.png?v=1630138947894";
 
 TrelloPowerUp.initialize({
   "on-enable": function(t, options) {
@@ -44,7 +42,22 @@ TrelloPowerUp.initialize({
         callback: audioPlayer
       }
     ];
+  },
+  
+  "board-buttons" : function (t, opts) {
+    return [
+      {
+        // we can either provide a button that has a callback function
+        text: "Hello World!",
+        icon: BLACK_ROCKET_ICON,
+        callback: audioPlayer
+      }
+    ]
   }
+  
+  
+  
+  
 
   // Start adding handlers for your capabilities here!
   // "card-buttons": function(t, options) {
