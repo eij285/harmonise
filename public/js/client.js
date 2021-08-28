@@ -1,7 +1,7 @@
 /* global TrelloPowerUp */
 
 
-import { audio, audioPlayerMax, audioPlayer2, audioPlayer } from './audio.js'
+import { getCurrentAudio, audioPlayerMax, audioPlayer2, audioPlayer } from './audio.js'
 
 
 var Promise = TrelloPowerUp.Promise;
@@ -18,8 +18,9 @@ img_1.src =
 
 TrelloPowerUp.initialize({
   "on-enable": function(t, options) {
+    var audio = getCurrentAudio();
     // audio.fastseek(30)
-    // audio.play
+    audio.play
     return t.modal({
       url: '../../views/intro.html',
       height: 500,

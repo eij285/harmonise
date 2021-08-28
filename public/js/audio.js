@@ -7,6 +7,8 @@ var audio = new Audio(
 
     
 export function audioPlayer() {
+  // audio.fastseek(30);
+  console.log("smth");
   if (audio.paused) {
     audio.play();
   } else {
@@ -18,6 +20,9 @@ export function audioPlayer2() {
   audio.play();
 };
 
+export function getCurrentAudio() {
+  return audio;
+}
 
 
 
