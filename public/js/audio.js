@@ -23,13 +23,12 @@ export function getCurrentAudio() {
 
 
 export function getCompletionPercent() {
-  var percent = 0.40;
+  var percent = 0.60;
   return percent;
 }
 
 // Sets the audio based on completion percentage
-export function setAudio() {
-  var completion = getCompletionPercent();
+export function setAudio(completion) {
   
   // Stores time so that we can fastSeek the next track to it
   var time = audio.currentTime
@@ -54,6 +53,7 @@ export function setAudio() {
   }
   
   audio.currentTime = time;
+  audio.play();
 };
 
 

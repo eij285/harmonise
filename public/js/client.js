@@ -1,7 +1,7 @@
 /* global TrelloPowerUp */
 
 
-import { getCurrentAudio, audioPlayerMax, audioPlayer } from './audio.js'
+import { getCurrentAudio, audioPlayerMax, audioPlayer, setAudio } from './audio.js'
 import { percentageCalc } from './percentage.js'
 
 
@@ -40,17 +40,18 @@ TrelloPowerUp.initialize({
         text: "Hello World!",
         icon: BLACK_ROCKET_ICON,
         callback: audioPlayer
+      },{
+        text: "Goodbye World!",
+        icon: BLACK_ROCKET_ICON,
+        callback: audioPlayer
       }
     ];
   },
-  
-  
-  
-  
   "board-buttons": function (t, opts) {
     return t.lists("all").then(function (lists) {
       
       const percentage = percentageCalc(lists);
+      setAudio(percentage);
       
       console.log(percentage);
     });
