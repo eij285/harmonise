@@ -26,8 +26,6 @@ img_1.src =
   "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fdiamond.png?v=1630138947894";
 
 
-let sprite1 = document.getElementById("cyan-sprite");
-console.log(sprite1);
 
 
 TrelloPowerUp.initialize({
