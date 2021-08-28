@@ -23,7 +23,7 @@ TrelloPowerUp.initialize({
     var audio = getCurrentAudio();
     audio.play();
     return t.modal({
-      url: '../../views/intro.html',
+      url: '../views/intro.html',
       height: 500,
       title: 'Overview of Harmonise'
     });
@@ -48,16 +48,57 @@ TrelloPowerUp.initialize({
     ];
   },
   "board-buttons": function (t, opts) {
-    return t.lists("all").then(function (lists) {
+    return [
+      {t.lists("all").then(function (lists) {
       
       const percentage = percentageCalc(lists);
-      setAudio(percentage);
+      var oldAudio = setAudio(percentage);
       var audio = getCurrentAudio();
       audio.play();
+      oldAudio.pause();
       
       console.log(percentage);
     });
+  }, {
+  
+}
+  ];
+//    return t.lists("all").then(function (lists) {
+//      
+//     const percentage = percentageCalc(lists);
+//       var oldAudio = setAudio(percentage);
+//       var audio = getCurrentAudio();
+//       audio.play();
+//       oldAudio.pause();
+      
+//       console.log(percentage);
+//    });
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

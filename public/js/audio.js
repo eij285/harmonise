@@ -56,7 +56,7 @@ export function setAudio(completion) {
   audio.loop = true;
   audio.currentTime = time;
   audio.volume = 1;
-  audioPointer.pause();
+  return audioPointer
 };
 
 
