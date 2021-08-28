@@ -1,11 +1,15 @@
 
 // Initialise audio at the very beginning and immediately set it based on percentage completion
+var lastCompletion = 0;
+
 var audio = new Audio(
   "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F0_7.mp3?v=1630142429925"
 );
 setAudio();
 audio.loop = true;
 audio.volume = 1;
+
+var lastCompletion = 0;
 
 // Play/pause audioPlayer
 export function audioPlayer() {
@@ -31,7 +35,11 @@ export function getCompletionPercent() {
 export function setAudio(completion) {
   
   // Stores time so that we can fastSeek the next track to it
-  var time = audio.currentTime
+  var time = audio.currentTime;
+  if (completion == lastCompletion) {
+    return null;
+  }
+  lastCompletion = completion;
   
   // Switch statements
   var audioPointer = audio
@@ -53,6 +61,9 @@ export function setAudio(completion) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127");
   }
   
+  if (audio == audioPointer) {
+    return null;
+  }
   audio.loop = true;
   audio.currentTime = time;
   audio.volume = 1;
