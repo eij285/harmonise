@@ -23,13 +23,6 @@ var WHITE_PLAY =
 var BLACK_PLAY =
   "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fplay.png?v=1630171033831";
 
-// NEED TO ADD CONDITIONAL TO CHANGE ICON TO PAUSE IF AUDIO IS BEING PLAYED------------------------------------------------
-var WHITE_PAUSE =
-  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fpause-button%20(1).png?v=1630171149616";
-
-var BLACK_PAUSE =
-  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fpause-button.png?v=1630171147855";
-// ------------------------------------------------------------------------------------------------------------------------
 
 TrelloPowerUp.initialize({
   // Starts playing audio and prints a modal containing the overview
