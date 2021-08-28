@@ -49,7 +49,7 @@ export function setAudio(completion) {
   console.log(completion)
   if (completion < 0.05 || completion == null) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F0_7.mp3?v=1630142429925");
-
+    
   } else if (completion < 0.15) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F1_7.mp3?v=1630142429925");
   } else if (completion < 0.25) {
