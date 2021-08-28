@@ -31,11 +31,7 @@ var audioTestMax = new Audio(
 export function audioPlayerMax() {
   if (audioTestMax.paused) {
     audioTestMax.play();
-    if (audio.paused) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
+    audio.pause;
   } else {
     audioTestMax.pause();
     audio.play();

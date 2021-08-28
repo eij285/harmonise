@@ -1,9 +1,7 @@
 /* global TrelloPowerUp */
 
 
-import { audioPlayerMax, audioPlayer2, audioPlayer } from './audio.js'
-
-
+import { audio, audioPlayerMax, audioPlayer2, audioPlayer } from './audio.js'
 
 
 var Promise = TrelloPowerUp.Promise;
@@ -20,7 +18,8 @@ img_1.src =
 
 TrelloPowerUp.initialize({
   "on-enable": function(t, options) {
-    audio.play()
+    // audio.fastseek(30)
+    // audio.play
     return t.modal({
       url: '../../views/intro.html',
       height: 500,
@@ -28,7 +27,7 @@ TrelloPowerUp.initialize({
     });
   },
   "on-disable": function(t, options) {
-    audio.pause()
+    // audio.pause()
     // return t.modal({
     //   url: '../../views/intro.html',
     //   height: 500,
