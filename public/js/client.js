@@ -1,32 +1,35 @@
 /* global TrelloPowerUp */
 
-
-import { getCurrentAudio, audioPlayerMax, audioPlayer, setAudio } from './audio.js'
-import { percentageCalc } from './percentage.js'
+import {
+  getCurrentAudio,
+  audioPlayerMax,
+  audioPlayer,
+  setAudio
+} from "./audio.js";
+import { percentageCalc } from "./percentage.js";
 
 var Promise = TrelloPowerUp.Promise;
 
 // Board button icons
-var WHITE_ICON =
-  "https://cdn.glitch.com/5a4486ec-9ae8-448d-9b9e-18352ad37668%2Fmusic%20(2).png?v=1630144427611";
+var WHITE_MUSIC =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fmusic-note%20(1).png?v=1630171027228";
 
-var BLACK_ICON =
-  "https://cdn.glitch.com/5a4486ec-9ae8-448d-9b9e-18352ad37668%2Fmusic%20(1).png?v=1630144302781";
+var BLACK_MUSIC =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fmusic-note.png?v=1630171028757";
 
-var BLACK_ROCKET_ICON =
-  "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
+var WHITE_PLAY =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fplay%20(1).png?v=1630171033209";
 
-var placeholder = function (t, options) {
-  console.log("Accessing stage");
-};
+var BLACK_PLAY =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fplay.png?v=1630171033831";
 
-// Rendering images into the board
-var img_1 = new Image();
-img_1.src =
-  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fdiamond.png?v=1630138947894";
+// NEED TO ADD CONDITIONAL TO CHANGE ICON TO PAUSE IF AUDIO IS BEING PLAYED------------------------------------------------
+var WHITE_PAUSE =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fpause-button%20(1).png?v=1630171149616";
 
-
-
+var BLACK_PAUSE =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fpause-button.png?v=1630171147855";
+// ------------------------------------------------------------------------------------------------------------------------
 
 TrelloPowerUp.initialize({
   // Starts playing audio and prints a modal containing the overview
@@ -34,9 +37,9 @@ TrelloPowerUp.initialize({
     var audio = getCurrentAudio();
     audio.play();
     return t.modal({
-      url: './intro.html',
-      height: 500,
-      title: 'Overview of Harmonise'
+      url: "./intro.html",
+      //height: 500,
+      title: "Harmonise"
     });
   },
   // Pauses audio
@@ -46,9 +49,8 @@ TrelloPowerUp.initialize({
   },
   // EDIT: Should be deleted or replaced with a make task button
 
-  "board-buttons": function (t, opts) {
-    t.lists("all").then(function (lists) {
-
+  "board-buttons": function(t, opts) {
+    t.lists("all").then(function(lists) {
       // const percentage = percentageCalc(lists);
       // var oldAudio = setAudio(percentage);
       // var audio = getCurrentAudio();
@@ -68,13 +70,16 @@ TrelloPowerUp.initialize({
     return [
       {
         text: "Play/Pause",
-        icon: BLACK_ROCKET_ICON,
+        icon: {
+          light: BLACK_PLAY,
+          dark: WHITE_PLAY
+        },
         callback: audioPlayer
       },
       {
         icon: {
-          light: BLACK_ICON,
-          dark: WHITE_ICON
+          light: BLACK_MUSIC,
+          dark: WHITE_MUSIC
         },
         text: "Harmonise",
         callback: function(t) {
@@ -85,122 +90,41 @@ TrelloPowerUp.initialize({
           });
         }
       }
-    ]
+    ];
   },
-  
-  
-  "card-badges": function (t, opts) {
+
+  "card-badges": function(t, opts) {
     let cardAttachments = opts.attachments; // Trello passes you the attachments on the card
-        return t
-          .card("name")
-          .get("name")
-          .then(function (cardName) {
-            return [
-              {
-                // Dynamic badges can have their function rerun
-                // after a set number of seconds defined by refresh.
-                // Minimum of 10 seconds.
-                dynamic: function () {
-                  // we could also return a Promise that resolves to
-                  // this as well if we needed to do something async first
-                  t.lists("all").then(function (lists) {
+    return t
+      .card("name")
+      .get("name")
+      .then(function(cardName) {
+        return [
+          {
+            // Dynamic badges can have their function rerun
+            // after a set number of seconds defined by refresh.
+            // Minimum of 10 seconds.
+            dynamic: function() {
+              // we could also return a Promise that resolves to
+              // this as well if we needed to do something async first
+              t.lists("all").then(function(lists) {
+                const percentage = percentageCalc(lists);
+                var oldAudio = setAudio(percentage);
+                var audio = getCurrentAudio();
 
-                    const percentage = percentageCalc(lists);
-                    var oldAudio = setAudio(percentage);
-                    var audio = getCurrentAudio();
+                if (oldAudio != null) {
+                  audio.play();
+                  oldAudio.pause();
+                }
 
-                    if (oldAudio != null) {
-                      audio.play();
-                      oldAudio.pause();
-                    }
-
-                    console.log(percentage);
-                  });
-                  return {
-                    refresh: 1,
-                  };
-                },
-              },
-              
-              
-              
-              
-              
-              
-            ];
-          
-          
-          
-          });
-
+                console.log(percentage);
+              });
+              return {
+                refresh: 1
+              };
+            }
+          }
+        ];
+      });
   }
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-// EDIT: To be replaced with the modal containing the band screen
-
-  
-//   "board-buttons" : function (t, opts) {
-//     return [
-
-      
-//       {
-//         // we can either provide a button that has a callback function
-//         text: "test",
-//         icon: BLACK_ROCKET_ICON,
-//         callback: audioPlayerMax
-//       }
-//     ]
-//   }
-  
-
-
-  
-  
-  
-  
-  
-
-  // Start adding handlers for your capabilities here!
-  // "card-buttons": function(t, options) {
-  //   return t.set("member", "shared", "hello", "world").then(function() {
-  //     return [
-  //       {
-  //         icon: BLACK_ROCKET_ICON,
-  //         text: "Estimate Size",
-  //         callback: function(t) {
-  //           return t.popup({
-  //             title: "Estimation",
-  //             url: "estimate.html"
-  //           });
-  //         }
-  //       }
-  //     ];
-  //   });
-  // }
 });
