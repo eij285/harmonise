@@ -34,6 +34,7 @@ export function setAudio(completion) {
   var time = audio.currentTime
   
   // Switch statements
+  var audioPointer = audio
   if (completion < 0.05) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F0_7.mp3?v=1630142429925");
   } else if (completion < 0.15) {
@@ -52,8 +53,10 @@ export function setAudio(completion) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127");
   }
   
+  audio.loop = true;
   audio.currentTime = time;
-  audio.play();
+  audio.volume = 1;
+  audioPointer.pause();
 };
 
 

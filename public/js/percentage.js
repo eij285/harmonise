@@ -13,6 +13,14 @@ function findDone (currList) {
 
 export function percentageCalc(board) {
   
+  const doneList = board.filter(findDone);
+
+  
+  const doneCards = doneList[0].cards.length;
+  
+  if (doneCards === 0) {
+    return 0;
+  }
   
   
   const numCardsList = board.map(cardCounter);
@@ -29,11 +37,6 @@ export function percentageCalc(board) {
   }
   
   
-  
-  const doneList = board.filter(findDone);
-
-  
-  const doneCards = doneList[0].cards.length;
   
   
   return doneCards / totalCards;
