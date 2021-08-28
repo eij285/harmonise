@@ -4,10 +4,13 @@ var audioTestMax = new Audio(
 
 
 
-var audioPlayerMax = function() {
+function audioPlayerMax() {
   if (audioTestMax.paused) {
     audioTestMax.play();
   } else {
     audioTestMax.pause();
   }
 };
+
+
+export default audioPlayerMax;

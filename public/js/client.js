@@ -1,6 +1,8 @@
 /* global TrelloPowerUp */
 
+
 import audioPlayerMax from './audio'
+
 
 
 
@@ -12,6 +14,9 @@ var BLACK_ROCKET_ICON =
 var audio = new Audio(
   "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127"
 );
+
+
+
 
 
 
@@ -60,16 +65,20 @@ TrelloPowerUp.initialize({
     ];
   },
   
+
+  
+  
   "board-buttons" : function (t, opts) {
     return [
       {
         // we can either provide a button that has a callback function
-        text: "Hello World!",
+        text: "test",
         icon: BLACK_ROCKET_ICON,
-        callback: audioPlayer
+        callback: audioPlayerMax
       }
     ]
   }
+
   
   
   
