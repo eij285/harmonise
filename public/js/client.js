@@ -70,7 +70,6 @@ TrelloPowerUp.initialize({
           .get("name")
           .then(function (cardName) {
           
-            
             console.log("We just loaded the card name for fun: " + cardName);
             return [
               {
@@ -80,6 +79,18 @@ TrelloPowerUp.initialize({
                 dynamic: function () {
                   // we could also return a Promise that resolves to
                   // this as well if we needed to do something async first
+                  t.lists("all").then(function (lists) {
+
+      const percentage = percentageCalc(lists);
+      var oldAudio = setAudio(percentage);
+      var audio = getCurrentAudio();
+      audio.play();
+      oldAudio.pause();
+
+      console.log(percentage);
+    });
+                  
+                  
                   return {
                     text: "Dynamic " + (Math.random() * 100).toFixed(0).toString(),
                     icon: "./images/icon.svg",
@@ -96,6 +107,12 @@ TrelloPowerUp.initialize({
                 icon: BLACK_ROCKET_ICON, // for card front badges only
                 color: null,
               },
+              
+              
+              
+              
+              
+              
             ];
           
           
