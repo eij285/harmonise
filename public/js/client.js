@@ -46,11 +46,19 @@ TrelloPowerUp.initialize({
   "board-buttons": function (t, opts) {
     t.lists("all").then(function (lists) {
 
+      // const percentage = percentageCalc(lists);
+      // var oldAudio = setAudio(percentage);
+      // var audio = getCurrentAudio();
+      // audio.play();
+      // oldAudio.pause();
       const percentage = percentageCalc(lists);
       var oldAudio = setAudio(percentage);
       var audio = getCurrentAudio();
-      audio.play();
-      oldAudio.pause();
+
+      if (oldAudio != null) {
+        audio.play();
+        oldAudio.pause();
+      }
 
       console.log(percentage);
     });
