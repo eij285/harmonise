@@ -17,15 +17,16 @@ var audioPlayer = function() {
   }
 };
 
-
 var audioPlayer2 = function() {
-
-    audio.play();
-
+  audio.play();
 };
 
 
 
+
+// Rendering images into the board
+var img_1 = new Image(); 
+img.src = 
 
 TrelloPowerUp.initialize({
   "on-enable": function(t, options) {
@@ -33,8 +34,7 @@ TrelloPowerUp.initialize({
       {
         callback: audioPlayer2
       }
-      
-    ]
+    ];
   },
   "card-buttons": function(t, options) {
     return [
