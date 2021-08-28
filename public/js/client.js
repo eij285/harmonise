@@ -54,12 +54,9 @@ TrelloPowerUp.initialize({
         // we can either provide a button that has a callback function
         text: "test",
         icon: BLACK_ROCKET_ICON,
-        callback: audioPlayerMax
-      }
-    ]
-  }
-
-  
+        callback: audioPlayerMax,
+        return t.lists("all").then(function (lists) {
+      console.log(JSON.stringify(lists, null, 2));
   
   
   
