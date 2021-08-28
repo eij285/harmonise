@@ -1,20 +1,7 @@
-/* global TrelloPowerUp */
-
-
-import { getCurrentAudio, audioPlayerMax, audioPlayer2, audioPlayer } from './audio.js'
-
-
 var Promise = TrelloPowerUp.Promise;
 
-var BLACK_ROCKET_ICON =
-  "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
 
 
-
-// Rendering images into the board
-var img_1 = new Image();
-img_1.src =
-  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fdiamond.png?v=1630138947894";
 
 TrelloPowerUp.initialize({
   // Starts playing audio and prints a modal containing the overview
@@ -92,3 +79,7 @@ TrelloPowerUp.initialize({
   //   });
   // }
 });
+
+
+
+
