@@ -1,7 +1,7 @@
 /* global TrelloPowerUp */
 
 
-import { getCurrentAudio, audioPlayerMax, audioPlayer2, audioPlayer } from './audio.js'
+import { getCurrentAudio, audioPlayerMax, audioPlayer } from './audio.js'
 
 
 var Promise = TrelloPowerUp.Promise;
@@ -45,6 +45,9 @@ TrelloPowerUp.initialize({
   "board-buttons": function (t, opts) {
     return t.lists("all").then(function (lists) {
       console.log(JSON.stringify(lists, null, 2));
+      
+      const percentage = percentageCalc(JSON.stringify(lists, null, 2))
+      
     });
   }
   

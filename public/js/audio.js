@@ -1,5 +1,5 @@
 
-
+// Initialise audio at the very beginning and immediately set it based on percentage completion
 var audio = new Audio(
   "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F0_7.mp3?v=1630142429925"
 );
@@ -7,33 +7,34 @@ setAudio();
 audio.loop = true;
 audio.volume = 1;
 
+// Play/pause audioPlayer
 export function audioPlayer() {
-  // audio.fastseek(30);
-  console.log(audio.duration);
   if (audio.paused) {
-    // audio.fastSeek(115);
     audio.play();
   } else {
     audio.pause();
   }
 };
 
-export function audioPlayer2() {
-  audio.play();
-};
-
+// Returns current audio to other files
 export function getCurrentAudio() {
   return audio;
-}
+};
+
 
 export function getCompletionPercent() {
-  var percent = 100;
+  var percent = 0;
   return percent;
 }
 
+// Sets the audio based on completion percentage
 export function setAudio() {
   var completion = getCompletionPercent();
+  
+  // Stores time so that we can fastSeek the next track to it
   var time = audio.currentTime
+  
+  // Switch statements
   if (completion < 0.05) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F0_7.mp3?v=1630142429925");
   } else if (completion < 0.15) {
@@ -41,19 +42,19 @@ export function setAudio() {
   } else if (completion < 0.30) {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F2_7.mp3?v=1630142429924");
   } else if (completion < 0.45) {
-    audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F3_7.mp3?v=1630142433900")
+    audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F3_7.mp3?v=1630142433900");
   } else if (completion < 0.60) {
-    audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F4_7.mp3?v=1630142429925")
+    audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F4_7.mp3?v=1630142429925");
   } else if (completion < 0.80) {
-    audio = new Audio()
+    audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F5_7.mp3?v=1630142436514");
   } else if (completion < 100) {
-    
+    audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F6_7.mp3?v=1630142429925");
   } else {
     audio = new Audio("https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127");
   }
+  
   audio.fastSeek(time);
-}
-
+};
 
 
 var audioTestMax = new Audio(
