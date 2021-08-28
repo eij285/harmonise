@@ -14,35 +14,27 @@ function findDone (currList) {
 export function percentageCalc(board) {
   
   
-  console.log(Array.isArray(board[0].cards))
   
   const numCardsList = board.map(cardCounter);
   
   const listLength = numCardsList.length;
   
   
-  console.log(listLength)
   
-  const totalCards = 0;
+  let totalCards = 0;
   
-  for (let i = 0; i < listLength; i++) {
-    totalCards = totalCards + numCardsList[i];
+  
+  for (let x = 0; x < listLength; x++) {
+    totalCards = totalCards + numCardsList[x];
   }
   
-  console.log(totalCards)
   
   
   const doneList = board.filter(findDone);
-  
-  
-  console.log(doneList)
+
   
   const doneCards = doneList[0].cards.length;
   
-  console.log(doneCards)
-  
-  
-  console.log(doneCards / totalCards)
   
   return doneCards / totalCards;
 }

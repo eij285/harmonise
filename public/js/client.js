@@ -49,9 +49,9 @@ TrelloPowerUp.initialize({
   
   "board-buttons": function (t, opts) {
     return t.lists("all").then(function (lists) {
-      console.log(lists);
       
       const percentage = percentageCalc(lists);
+      
       console.log(percentage);
     });
   }
