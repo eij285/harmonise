@@ -1,7 +1,7 @@
 /* global TrelloPowerUp */
 
 
-import audioPlayerMax from './audio'
+import { audioPlayerMax } from './audio'
 
 
 
@@ -42,18 +42,18 @@ TrelloPowerUp.initialize({
   "on-enable": function(t, options) {
     audio.play()
     return t.modal({
-      url: './power-up-onboarding.html',
+      url: '../../views/intro.html',
       height: 500,
-      title: 'My Power-Up Overview'
+      title: 'Overview of Harmonise'
     });
   },
   "on-disable": function(t, options) {
     audio.pause()
-    return t.modal({
-      url: './power-up-onboarding.html',
-      height: 500,
-      title: 'My Power-Up Overview'
-    });
+    // return t.modal({
+    //   url: '../../views/intro.html',
+    //   height: 500,
+    //   title: 'Overview of Harmonise'
+    // });
   },
   "card-buttons": function(t, options) {
     return [
