@@ -12,42 +12,46 @@ var BLACK_ROCKET_ICON =
 
 
 
-// // Rendering images into the board
-// var img_1 = new Image();
-// img_1.src =
-//   "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fdiamond.png?v=1630138947894";
+// Rendering images into the board
+var img_1 = new Image();
+img_1.src =
+  "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2Fdiamond.png?v=1630138947894";
 
 TrelloPowerUp.initialize({
-  // // Starts playing audio and prints a modal containing the overview
-  // "on-enable": function(t, options) {
-  //   var audio = getCurrentAudio();
-  //   audio.play();
-  //   return t.modal({
-  //     url: '../../views/intro.html',
-  //     height: 500,
-  //     title: 'Overview of Harmonise'
-  //   });
-  // },
-  // // Pauses audio
-  // "on-disable": function(t, options) {
-  //   var audio = getCurrentAudio();
-  //   audio.pause();
-  // },
-  // // EDIT: Should be deleted or replaced with a make task button
-  // "card-buttons": function(t, options) {
-  //   return [
-  //     {
-  //       text: "Hello World!",
-  //       icon: BLACK_ROCKET_ICON,
-  //       callback: audioPlayer
-  //     }
-  //   ];
-  // },
+  // Starts playing audio and prints a modal containing the overview
+  "on-enable": function(t, options) {
+    var audio = getCurrentAudio();
+    audio.play();
+    return t.modal({
+      url: '../../views/intro.html',
+      height: 500,
+      title: 'Overview of Harmonise'
+    });
+  },
+  // Pauses audio
+  "on-disable": function(t, options) {
+    var audio = getCurrentAudio();
+    audio.pause();
+  },
+  // EDIT: Should be deleted or replaced with a make task button
+  "card-buttons": function(t, options) {
+    return [
+      {
+        text: "Hello World!",
+        icon: BLACK_ROCKET_ICON,
+        callback: audioPlayer
+      }
+    ];
+  },
+  
+  
+  
+  
   "board-buttons": function (t, opts) {
     return t.lists("all").then(function (lists) {
-      console.log(JSON.stringify(lists, null, 2));
+      console.log(lists);
       
-      const percentage = percentageCalc(JSON.stringify(lists, null, 2));
+      const percentage = percentageCalc(lists);
       console.log(percentage);
     });
   }
