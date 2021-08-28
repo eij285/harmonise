@@ -5,9 +5,13 @@ var Promise = TrelloPowerUp.Promise;
 var BLACK_ROCKET_ICON =
   "https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421";
 
-// var LOOP_77 = "https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F77.mp3?v=1630135797194";
+var audioPlayer = function (
+  
+  var audio = new Audio('https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F7_7.mp3?v=1630136495127');
+  audio.play();
+)
 
-var audio = new Audio('https://cdn.glitch.com/914844dd-5f92-437f-b818-848b7cf5b35a%2F77.mp3?v=1630135797194');
+
 
 
 TrelloPowerUp.initialize({
@@ -16,11 +20,7 @@ TrelloPowerUp.initialize({
       {
         text: "Hello World!",
         icon: BLACK_ROCKET_ICON,
-        callback: function(t) {
-          return t
-            .card("id", "name")
-            .then(card => audio.play());
-        }
+        callback: audioPlayer
       }
     ];
   }
